@@ -32,7 +32,7 @@ function perfomanceHook(name) {
 
 function stats(xs) {
 	const perfHook = perfomanceHook('m');
-	
+
 	const n = node(() => xs.length);
 	const m = node(() => xs.reduce((acc, val) => acc + val, 0) / n(), perfHook.preHook, perfHook.postHook);
 	const m2 = node(() => xs.reduce((acc, val) => acc + val * val, 0) / n());
@@ -46,7 +46,8 @@ console.log(t.v());
 
 const longArr = Array.apply(null, {length: 100000}).map(Function.call, Math.random);
 const stat = stats(longArr);
-console.log(stat.v());
+console.log("n=", stat.n());
+console.log("v=", stat.v());
 
 
 
