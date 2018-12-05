@@ -1,12 +1,12 @@
 function sum(a) {
-   sum.partialSum || (sum.partialSum = 0);
-   sum.partialSum += a;
-   sum.toString = sum.valueOf = function() { 
-      const curSum = sum.partialSum;
-      sum.partialSum = 0;
-      return curSum;
-   };
-   return sum; 
+    sum.partialSum || (sum.partialSum = 0);
+    sum.partialSum += a;
+    sum.toString = sum.valueOf = function() {
+        const curSum = sum.partialSum;
+        sum.partialSum = 0;
+        return curSum;
+    };
+    return sum;
 }
 console.log(+sum(1)(2)(3)); // ок - 6
 console.log(+sum(1)(2)(5)); // ок - 8
