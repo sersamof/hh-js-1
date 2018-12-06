@@ -8,19 +8,19 @@ function parseNames(fun) {
     return args;
 }
 
+function __memoize(funcName, fun) {
+    let computed;
+    return (...args) => {
+        if (computed === undefined) {
+            computed = fun(...args);
+        }
+        return computed;
+    };
+}
+
 class GraphEval {
     constructor() {
-        this.decorator = this.__memoizeHook;
-    }
-
-    __memoizeHook(funcName, fun) {
-        let computed;
-        return (...args) => {
-            if (computed === undefined) {
-                computed = fun(...args);
-            }
-            return computed;
-        };
+        this.decorator = __memoize;
     }
 
     receiveGraph(graph) {

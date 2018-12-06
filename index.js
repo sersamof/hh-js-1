@@ -27,9 +27,9 @@ const graphStat = {
 const counter1 = callCounterFactory();
 const graph = new LazyGraph()
     .with(counter1)
-    .with(perfomanceHook)
-    //.with(callHook)
-    //.with(valueHook)
+    .with(perfomanceLogger)
+    //.with(callLogger)
+    //.with(valueLogger)
     .receiveGraph(graphStat);
 const v1 = graph.calcVertex('v');
 console.log(v1);
@@ -38,9 +38,9 @@ console.log(counter1.getCount());
 const counter2 = callCounterFactory();
 const graph2 = new EagerGraph()
     .with(counter2)
-    .with(perfomanceHook)
-    //.with(callHook)
-    //.with(valueHook)
+    .with(perfomanceLogger)
+    //.with(callLogger)
+    //.with(valueLogger)
     .receiveGraph(graphStat);
 const v2 = graph2.calcVertex('v');
 console.log(v2);
